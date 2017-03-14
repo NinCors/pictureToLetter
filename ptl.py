@@ -11,7 +11,13 @@ parser.add_argument('-o', '--output')   #output file
 parser.add_argument('--width', type = int, default = 80) # width of output letter graph
 parser.add_argument('--height', type = int, default = 80) # height of output letter grap
 
+# Get the infomation from user input
+args = parser.parse_args()
 
+IMG = args.file
+WIDTH = args.width
+HEIGHT = args.height
+OUTPUT = args.output
 
 
 # convert RGB to letter
