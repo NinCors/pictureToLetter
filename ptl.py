@@ -1,7 +1,7 @@
 from PIL import Image
 import argparse
 
-ascii_letter = list("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. ")
+ascii_letter = list("$@B%8&WM#*oabcdefghijklmeopqrstuvwxyzABCDEFHIJKLMNOPTRSTUVWXYZhkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. ")
 
 # Input argument parser
 parser = argparse.ArgumentParser()
@@ -47,5 +47,12 @@ def runner():
         charPic += '\n'
 
     print charPic
+    
+    if OUTPUT:
+        with open(OUTPUT,'w') as output:
+            output.write(charPic)
+    else:
+        with open("output.txt",'w') as output:
+            output.write(charPic)
 
 runner()
