@@ -1,4 +1,4 @@
-from PTL import Image
+from PIL import Image
 import argparse
 
 ascii_letter = list("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. ")
@@ -14,7 +14,7 @@ parser.add_argument('--height', type = int, default = 80) # height of output let
 # Get the infomation from user input
 args = parser.parse_args()
 
-IMG = args.file
+PIC = args.file
 WIDTH = args.width
 HEIGHT = args.height
 OUTPUT = args.output
@@ -27,9 +27,25 @@ def get_char(r,g,b,alpha = 256):
 
     # calculate gray value
     # use the gray formula
-    gary = int(0.2126 * r +0.7152 * g + 0.0722 * b)
+    gray = int(0.2126 * r +0.7152 * g + 0.0722 * b)
     
     # make the letter version of picture with layers
-    length = len(ascii_char)
-    unit = (256 + 1)/length
-    return ascii_char[int(gray/unit)]
+    length = len(ascii_letter)
+    unit = (256.0 + 1)/length
+    return ascii_letter[int(gray/unit)]
+
+def runner():
+    
+    pic = Image.open(PIC)
+    pic = pic.resize((WIDTH,HEIGHT),Image.NEAREST)
+    
+    charPic = ''
+
+    for i in range(HEIGHT):
+        for w in range(WIDTH):
+            charPic += get_char(*pic.getpixel((w,i)))
+        charPic += '\n'
+
+    print charPic
+
+runner()
