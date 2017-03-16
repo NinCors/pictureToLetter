@@ -1,7 +1,8 @@
 from PIL import Image
 import argparse
 
-ascii_letter = list("$@B%8&WM#*oabcdefghijklmeopqrstuvwxyzABCDEFHIJKLMNOPTRSTUVWXYZhkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. ")
+ascii_letter = list("$@B%8&WM#*oabcdefghijklmeopqrstuvwxyzABCDEFHIJKLMNOPTRSTUVWXYZ:wq
+hkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. ")
 
 # Input argument parser
 parser = argparse.ArgumentParser()
